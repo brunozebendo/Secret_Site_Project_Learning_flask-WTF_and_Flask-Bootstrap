@@ -1,0 +1,28 @@
+<!--One of the main reasons why we're using Flask-Bootstrap in this project is because it has one of the
+ most convenient methods for generating forms with WTForms.
+
+Literally, in 1 line of code, you can create your form. It's as simple as:
+
+{{ wtf.quick_form(form) }}
+
+What this line of code will do is generate all the labels, inputs, buttons, styling for your form just
+ by taking the WTForm object that was passed to the template (form).
+
+You can simply delete the entire
+
+element and add a line to inherit the wtf support from bootstrap and use the quick_form()
+to generate your form. -->
+
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<div class="container">
+		<h1>Login</h1>
+        {{ wtf.quick_form(form) }}
+    </div>
+{% endblock %}
